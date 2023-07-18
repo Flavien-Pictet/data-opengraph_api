@@ -7,9 +7,14 @@ import requests
 
 def fetch_metadata(url):
     """
-    Return a dictionary of OpenGraph metadata found in HTML of given url
+    Returns a dictionary of OpenGraph metadata found in the HTML of the given URL.
     """
-    pass  # YOUR CODE HERE
+    try:
+        response = requests.get(url)
+        return response.json()
+    except requests.exceptions.RequestException:
+        return {}
+
 
 # To manually test, please uncomment the following lines and run `python opengraph.py`:
 # import pprint
